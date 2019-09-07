@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissor Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style1.css">
+
+</head>
+<body class="RockpaperScissor">
+<div class="welcome msg">
+    <H1 style="color: darkcyan"> ROCK PAPER SCISSORS Game</H1>
+    <img src="RPS.jpeg" style="width: 200px;height:200px"/>
+</div>
+<div class="score-board">
+
+    <div id="usr-label" class="badge">user</div>
+    <div id="comp-label" class="badge">comp</div>
+    <span id="usrScore" style="font-size: 40px;color: chartreuse">0</span>
+    <span style="font-size: 40px;color: chartreuse">:</span>
+    <span id="compScore" style="font-size: 40px;color: chartreuse">0</span>
+
+</div>
+<br><br>
+<div>
+    <p id="winMsg" class="msg"></p>
+
+</div>
+<div class="mainBtns">
+    <button id="rock" class="choice" onclick="rockSelected()"><img src="rock.jpeg"
+                                                                   style="width: 100px;height:100px"/></button>
+    <button id="paper" class="choice" onclick="paperSelected()"><img src="paper.jpeg"
+                                                                     style="width: 100px;height:100px"/></button>
+    <button id="scissors" class="choice" onclick="scissorsSelected()"><img src="scissors.jpeg"
+                                                                           style="width: 100px;height:100px"/></button>
+</div>
+<div>
+
+    <p class="msg">Make your Move</p>
+</div>
+
+<script>
+
+    const userScoreSpan = document.getElementById("User");
+    const compScoreSpan = document.getElementById("Computer");
+    var User=0;
+    var Computer=0;
+    const rock_btn = document.getElementById("rock");
+    const paper_btn = document.getElementById("paper");
+    const scissors_btn = document.getElementById("scissors");
+    const msg=document.getElementById("winMsg");
+    function compSelected() {
+        const choiceArray = ["r", "p", "s"];
+        const randomNumber = Math.floor(Math.random() * 3);
+        return choiceArray[randomNumber];
+    }
+
+    function convertToString(letter) {
+
+        if (letter == "r") {
+            return "rock";
+        }
+        if (letter == "p") {
+            return "paper";
+        }
+        if (letter == "s") {
+            return "scissors";
+        }
+
+    }
+
+    function scoreDisplay(User) {
+        const Computer = compSelected();
+        switch (User + Computer) {
+
+            case "rs":
+                msg.innerHTML = convertToString(User) +" "+ "beats" +" "+ convertToString(Computer) + " "+"User WIN!";
+                userScore++;
+                userScoreSpan.innerHTML=userScore;
+                break;
+            case "pr":
+                msg.innerHTML = convertToString(User) +" "+ "beats" +" "+ convertToString(Computer) + ""+"User WIN!";
+                userScore++;
+                userScoreSpan.innerHTML=userScore;
+                break;
+            case "sp":
+                msg.innerHTML = convertToString(User) +" "+ "beats" +" "+ convertToString(Computer) + " "+"User WIN!";
+                userScore++;
+                userScoreSpan.innerHTML=userScore;
+                break;
+            case "rp":
+                msg.innerHTML = convertToString(Computer) +" "+ "beats" + " "+convertToString(User) + " "+"Comp WIN!";
+                compScore++;
+                compScoreSpan.innerHTML=compScore;
+                break;
+            case "ps":
+                msg.innerHTML = convertToString(Computer) +" "+ "beats"+" " + convertToString(User)+" " + "Comp WIN!";
+                compScore++;
+                compScoreSpan.innerHTML=compScore;
+                break;
+            case "sr":
+                msg.innerHTML = convertToString(Computer) +" "+ "beats" + " "+convertToString(User) + " "+"Comp WIN!";
+                compScore++;
+                compScoreSpan.innerHTML=compScore;
+                break;
+            case "rr":
+            case"ss":
+            case "pp":
+                msg.innerHTML = "DRAW";
+                break;
+        }
+
+    }
+
+    function rockSelected() {
+
+        scoreDisplay("r");
+
+    }
+
+    function paperSelected() {
+        scoreDisplay("p");
+    }
+
+    function scissorsSelected() {
+        scoreDisplay("s");
+    }
+
+</script>
+</body>
+</html>

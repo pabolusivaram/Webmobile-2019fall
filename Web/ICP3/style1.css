@@ -1,0 +1,69 @@
+.mainBtns {
+    margin: auto;
+    width: 440px;
+    height: 100px;
+}
+.msg{
+
+    text-align: center;
+    color: aqua;
+}
+
+.choice {
+
+    margin-left: 15px;
+
+}
+
+.choice:hover {
+
+    background-color:aquamarine ;
+}
+
+.score-board {
+    text-align: center;
+    margin: auto;
+    box-sizing: border-box;
+    border: 5px lightyellow;
+    border-radius: 25px;
+    padding: 25px;
+    width: 220px;
+    height: 150px;
+    position: relative;
+
+}
+
+.welcome msg {
+
+    margin: auto;
+    text-align: center;
+}
+
+.rpsBody {
+
+    background-color: black;
+}
+
+.badge {
+    background-color: darkmagenta;
+    color: white;
+    font-size: 15px;
+
+
+}
+
+#usr-label {
+
+    position: absolute;
+    top: 50px;
+    left: -15px;
+}
+
+
+#comp-label {
+    position: absolute;
+    top: 50px;
+    right: -15px;
+}
+
+
